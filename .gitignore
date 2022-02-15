@@ -3,6 +3,7 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+# C:\Users\rahk1\.virtualenvs\Product_API-AN8bOJK1
 # C extensions
 *.so
 
