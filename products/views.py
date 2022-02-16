@@ -1,3 +1,4 @@
+
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from rest_framework import status
@@ -10,6 +11,7 @@ from products import serializers
 
 # Create your views here.
 # , 'PUT', 'DELETE'serializer = ProductSerializer(serializer.data)
+
 @api_view(['GET', 'POST'])
 def product_list(request):
 
@@ -29,5 +31,15 @@ def product_list(request):
         serializer.save()
         return Response(serializer.data, status.HTTP_201_CREATED)
     
+@api_view(['GET'])
+def product_detail(request, pk):
+    try:
+
+        product = Product.objects.get(pk=pk)
+        serializer = ProductSerializer(product)
+        return Response(serializer.data)
+    
+    except Product.DoesNotExist:
+        return Response(status=status.HTTP_400_BAD_REQUEST)
 
     # return Response(serializer.data)
