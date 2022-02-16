@@ -26,6 +26,10 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 
+REST_FRAMEWORK = {
+    'COERCE_DECIMAL_TO_STRING': False
+}
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -66,6 +70,8 @@ TEMPLATES = [
         },
     },
 ]
+
+
 
 WSGI_APPLICATION = 'products_project.wsgi.application'
 
